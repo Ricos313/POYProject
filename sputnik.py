@@ -101,6 +101,7 @@ class Sputnik:
         cone_base_magnitude = math.sqrt(cone_base_x ** 2 + cone_base_y ** 2 + cone_base_z ** 2)
 
         angle = math.degrees(math.acos(dot_product / (object_magnitude * cone_base_magnitude)))
+        print(angle, cone_angle)
         if angle <= cone_angle:
             return True
         else:
