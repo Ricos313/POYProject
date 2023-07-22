@@ -67,21 +67,21 @@ def calculation_speeds(m, p, e, i, o, u, O):
     return [x, y, z]
 
 
-def xyz_to_lonlat(x, y, z):
-    x, y, z = x, y, z
-    # Создаем объект Transformer для преобразования координат
-    transformer = Transformer.from_crs(CRS.from_epsg(4326), CRS.from_epsg(4978), always_xy=True)
-
-    # Преобразовываем координаты из x, y, z в долготу и широту
-    lon, lat, _ = transformer.transform(x, y, z)
-    rxy = sqrt(x * x + y * y)
-    len = sqrt(x * x + y * y + z * z)
-    lat = asin(z / len)
-    lon = acos(x / rxy)
-    if y < 0:
-        lon = 2 * pi - lon
-
-    return lon, lat
+# def xyz_to_lonlat(x, y, z):
+#     x, y, z = x, y, z
+#     # Создаем объект Transformer для преобразования координат
+#     transformer = Transformer.from_crs(CRS.from_epsg(4326), CRS.from_epsg(4978), always_xy=True)
+#
+#     # Преобразовываем координаты из x, y, z в долготу и широту
+#     lon, lat, _ = transformer.transform(x, y, z)
+#     rxy = sqrt(x * x + y * y)
+#     len = sqrt(x * x + y * y + z * z)
+#     lat = asin(z / len)
+#     lon = acos(x / rxy)
+#     if y < 0:
+#         lon = 2 * pi - lon
+#
+#     return lon, lat
 
 
 def ICS_to_GCS(pos, starTime):
@@ -95,16 +95,16 @@ def ICS_to_GCS(pos, starTime):
     return
 
 
-def starTime(lat, lon):
-    obs = ephem.Observer()
-    obs.lat = lat
-    obs.lon = lon
-    sun = ephem.Sun()
-    current_time = datetime.now()
-    obs.date = current_time
-    sun.compute(obs)
-    sidereal_time_deg = ephem.degrees(sun.ra)
-    return sidereal_time_deg
+# def starTime(lat, lon):
+#     obs = ephem.Observer()
+#     obs.lat = lat
+#     obs.lon = lon
+#     sun = ephem.Sun()
+#     current_time = datetime.now()
+#     obs.date = current_time
+#     sun.compute(obs)
+#     sidereal_time_deg = ephem.degrees(sun.ra)
+#     return sidereal_time_deg
 
 
 def get_star_time(t):
@@ -131,4 +131,3 @@ def get_star_time(t):
     return temp
 
 print(get_star_time(datetime.now()))
-print(f'{starTime(55.7, 37.6)}')

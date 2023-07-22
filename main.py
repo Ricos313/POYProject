@@ -19,7 +19,7 @@ delta_t = dt.timedelta(minutes=1)
 #     for i in range(len(params_list)):
 #         params_list[i] = params_list[i].split(', ')
 #     print(params_list)
-sputnik1 = Sputnik(Point(1, 0, 5), [1, 1, 1], 200, 25500000, 0.00068)
+sputnik1 = Sputnik(Point(0, 0, 0), [1, 1, 1], 200, 25500000, 0.00068)
 timer = 0
 
 with open('data.txt', 'w') as f:
@@ -28,8 +28,7 @@ with open('data.txt', 'w') as f:
         t += delta_t
         sputnik1.rotating(64.9, 120, 135, 500, timer)
         timer += 3500
-        for j in sputnik1.coords:
-            print(j, end=' ', file=f)
+        print(f'{sputnik1.coords.x} {sputnik1.coords.y} {sputnik1.coords.z} ')
         if sputnik1.is_object_in_cone(50.402395, 30.532690, 65):
             print(1, file=f)
         else:

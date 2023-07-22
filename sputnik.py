@@ -17,7 +17,7 @@ class Sputnik:
         self.smaller_axel = larger_axel * math.sqrt(1 - e*e)
         self.e = e
         self.large_axel = larger_axel
-        self.lon, self.lat = xyz_to_lonlat(self.coords.x, self.coords.y, self.coords.z)
+        # self.lon, self.lat = xyz_to_lonlat(self.coords.x, self.coords.y, self.coords.z)
 
     # def rotating(self, i, o, w, M0, t):
     #     n = calculation_n(m, self.large_axel)
@@ -57,6 +57,8 @@ class Sputnik:
 
         coordinates = calculation_coords(r, o, u, i)
         self.coords.x, self.coords.y, self.coords.z = coordinates[0], coordinates[1], coordinates[2]
+        st = get_star_time(datetime.now())
+        ICS_to_GCS(self.coords, st)
 
         self.speeds = calculation_speeds(m, p, self.e, i, o, u, v)
     # def is_object_in_cone(self, object_lat, object_lon, cone_angle):
