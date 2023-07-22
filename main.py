@@ -1,5 +1,5 @@
 import datetime as dt
-from sputnik import Sputnik, G, astronomical_unit
+from sputnik import *
 
 
 def func1(mass):
@@ -19,7 +19,7 @@ delta_t = dt.timedelta(minutes=1)
 #     for i in range(len(params_list)):
 #         params_list[i] = params_list[i].split(', ')
 #     print(params_list)
-sputnik1 = Sputnik([1, 0, 5], [1, 1, 1], 200, 25500000, 0.00068)
+sputnik1 = Sputnik(Point(1, 0, 5), [1, 1, 1], 200, 25500000, 0.00068)
 timer = 0
 
 with open('data.txt', 'w') as f:

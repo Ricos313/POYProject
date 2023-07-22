@@ -17,7 +17,7 @@ class Sputnik:
         self.smaller_axel = larger_axel * math.sqrt(1 - e*e)
         self.e = e
         self.large_axel = larger_axel
-        self.lon, self.lat = xyz_to_lonlat(self.coords[0], self.coords[1], self.coords[2])
+        self.lon, self.lat = xyz_to_lonlat(self.coords.x, self.coords.y, self.coords.z)
 
     # def rotating(self, i, o, w, M0, t):
     #     n = calculation_n(m, self.large_axel)
