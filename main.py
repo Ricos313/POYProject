@@ -28,7 +28,7 @@ with open('data.txt', 'w') as f:
         t += delta_t
         sputnik1.rotating(64.9, 120, 135, 500, timer)
         timer += 3500
-        print(f'{sputnik1.coords.x} {sputnik1.coords.y} {sputnik1.coords.z} ')
+        print(f'{sputnik1.coords.x} {sputnik1.coords.y} {sputnik1.coords.z}', end=' ', file=f)
         if sputnik1.is_object_in_cone(50.402395, 30.532690, 65):
             print(1, file=f)
         else:
